@@ -60,27 +60,34 @@
         }
 
         /* --- Apple-Style Premium Logo Animation --- */
-        .logo-box {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: fadeInUp 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
+    .logo-box {
+    position: relative;
+    width: 160px;  /* Increased from 100px to make it bigger */
+    height: 160px; /* Increased from 100px */
+    margin: 0 auto 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInUp 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
 
+/* Add or update this rule to ensure the image itself scales up nicely */
+.logo-box img {
+    width: 120px !important; /* Forces the graphic logo to be larger */
+    height: auto;
+    z-index: 2;
+    position: relative;
+}
         /* Ambient background glow behind the logo */
-        .logo-glow {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, rgba(0, 113, 227, 0.4) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%;
-            animation: pulseGlow 4s ease-in-out infinite;
-            z-index: 1;
-        }
+       .logo-glow {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: none; /* Changed from radial-gradient to none */
+    border-radius: 50%;
+    animation: pulseGlow 4s ease-in-out infinite;
+    z-index: 1;
+}
 
         /* Pure-CSS Modern Logistics/Globe Logo */
         .abstract-logo {
@@ -258,13 +265,18 @@
         </div>
 
         <!-- Header -->
-        <h1 class="brand-name">4TISGroup</h1>
+        <h1 class="brand-name" >4TisGroup</h1>
         <p class="tagline">Our website is coming soon. Connect with us for any global business inquiries.</p>
 
-        <!-- Inquiry Form Desk -->
+       
+     <!-- Inquiry Form Desk -->
         <div class="form-container">
-            <!-- Replace key below with your Formspree/Web3Forms ID to activate email notifications -->
-            <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+            <!-- Web3Forms API Endpoint -->
+            <form action="https://api.web3forms.com/submit" method="POST">
+                
+                <!-- Your Web3Forms Access Key linked to 4tisgroup@gmail.com -->
+                <input type="hidden" name="access_key" value="aacfebf7-a19f-4963-9992-0c4063b7e14e">
+
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Full Name" required>
                 </div>
@@ -278,13 +290,13 @@
             </form>
 
             <div class="contact-footer">
-                Direct Contact: <a href="tel:+919826015815">+91 98260 15815</a>
+                Direct Contact: <a href="tel:+44 7908 497512">+44 7908 497512</a>
             </div>
         </div>
     </div>
 
    <!-- WhatsApp Integration -->
-    <a href="https://wa.me/919826015815?text=Hello%204TISGroup,%20I'm%20interested%20in%20your%20services." class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/447908497512?text=Hello%204TISGroup,%20I'm%20interested%20in%20your%20services." class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
     </a> 
 </body>
