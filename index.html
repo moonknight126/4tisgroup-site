@@ -1,22 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>4TISGroup</title>
-<style>
-body{
-font-family:Arial,sans-serif;
-text-align:center;
-padding-top:100px;
-background:#f5f5f5;
-}
-h1{
-font-size:50px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4TISGroup - Coming Soon</title>
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Reset & Apple Dark Mode Theme --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+            background-color: #000000;
+            color: #f5f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 480px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes rotateGlobe {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        /* --- Apple-Style Premium Logo Animation --- */
+        .logo-box {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInUp 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Ambient background glow behind the logo */
+        .logo-glow {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(0, 113, 227, 0.4) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            animation: pulseGlow 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        /* Pure-CSS Modern Logistics/Globe Logo */
+        .abstract-logo {
+            width: 70px;
+            height: 70px;
+            border: 2px solid rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            animation: rotateGlobe 12s linear infinite;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .abstract-logo::before, .abstract-logo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .abstract-logo::before {
+            transform: scaleX(0.4);
+            border-left: 2px solid #fff;
+            border-right: 2px solid #fff;
+        }
+
+        .abstract-logo::after {
+            transform: scaleY(0.4);
+            border-top: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+        }
+
+        /* --- Brand Text & Typography --- */
+        .brand-name {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            animation: fadeInUp 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            color: #86868b;
+            font-weight: 300;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        /* --- Modern Apple Blur Form Panel --- */
+        .form-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 32px;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            animation: fadeInUp 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.6s;
+            opacity: 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        input:focus, textarea:focus {
+            border-color: #0071e3;
+            background: rgba(255, 255, 255, 0.09);
+            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.2);
+        }
+
+        textarea {
+            resize: none;
+            height: 95px;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background-color: #0071e3;
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0077ed;
+            transform: scale(1.01);
+        }
+
+        button:active {
+            transform: scale(0.99);
+        }
+
+        .contact-footer {
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: #86868b;
+        }
+
+        .contact-footer a {
+            color: #0071e3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* --- Floating WhatsApp Anchor --- */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            z-index: 100;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1) translateY(-3px);
+            background-color: #22c35e;
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
+        }
+
+    .whatsapp-icon {
+            width: 32px;
+            height: 32px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-<h1>🚧 Website Under Construction</h1>
-<p>Our website is coming soon.</p>
-<p>4TISGroup</p>
+
+    <div class="container">
+        <!-- Brand Logo Space -->
+<div class="logo-box">
+            <div class="logo-glow"></div>
+            <img src="Main logo.png" alt="4TISGroup Logo" style="width: 80px; height: auto; z-index: 2; position: relative;">
+        </div>
+
+        <!-- Header -->
+        <h1 class="brand-name">4TISGroup</h1>
+        <p class="tagline">Our website is coming soon. Connect with us for any global business inquiries.</p>
+
+        <!-- Inquiry Form Desk -->
+        <div class="form-container">
+            <!-- Replace key below with your Formspree/Web3Forms ID to activate email notifications -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Business Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="inquiry" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit">Submit Inquiry</button>
+            </form>
+
+            <div class="contact-footer">
+                Direct Contact: <a href="tel:+919826015815">+91 98260 15815</a>
+            </div>
+        </div>
+    </div>
+
+   <!-- WhatsApp Integration -->
+    <a href="https://wa.me/919826015815?text=Hello%204TISGroup,%20I'm%20interested%20in%20your%20services." class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+    </a> 
 </body>
-</html>
+</html> 
